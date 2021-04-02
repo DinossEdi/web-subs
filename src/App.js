@@ -6,6 +6,7 @@ import EditUser from "./components/edit-user.component";
 import DeleteUser from "./components/delete-user.component";
 import AddUser from "./components/add-user.component";
 import UserDetails from "./components/user-details.component";
+
 function App() {
   return (
     <Router>
@@ -14,7 +15,7 @@ function App() {
       <Route path="/update/:id" exact component={EditUser} />
       <Route path="/delete/:id" exact component={DeleteUser} />
       <Route path="/add" exact component={AddUser} />
-      <Route path="/:id" exact component={UserDetails} />
+      <Route path="/user/:id" exact component={UserDetails} />
     </Router>
   );
 }

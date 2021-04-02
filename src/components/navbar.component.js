@@ -1,30 +1,34 @@
-import { render } from "@testing-library/react";
-import React, { Component, components } from "react";
-import { link } from "react-router-dom";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-dark bg-dark navbar-expend-lg">
+      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         <Link to="/" className="navbar-brand">
           Web-Subs
         </Link>
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav mr-auto">
-            <li className="navbar-item">
-              <link to="/" className="nav-lik">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
                 Users List
-              </link>
+              </Link>
             </li>
-            <li className="navbar-item">
-              <link to="/update" className="nav-lik">
+            <li className="nav-item">
+              <Link to="/update" className="nav-link">
                 Edit User
-              </link>
+              </Link>
             </li>
-            <li className="navbar-item">
-              <link to="/delete" className="nav-lik">
-                delete user
-              </link>
+            <li className="nav-item">
+              <Link to="/delete" className="nav-link">
+                Delete User
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/add" className="nav-link">
+                Add User
+              </Link>
             </li>
           </ul>
         </div>

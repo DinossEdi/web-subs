@@ -1,4 +1,5 @@
 const router = require("express").Router();
+
 let User = require("/home/ayra/projects/web-subs/backend/models/user.model");
 
 router.route("/").get((req, res) => {
@@ -50,29 +51,14 @@ router.route("/update/:id").put((req, res) => {
     .catch((err) => res.status(400).json("Error " + err));
 });
 
-router.route("/users").get(paginatedResults(), (req, res) => {
-  res.json(res.paginatedResults);
-});
-
-function paginatedResults() {
-  return async (req, res, next) => {
-    const page = parseInt(req.query.page);
-    const size = parseInt(req.query.size);
-    const skipIndex = (page - 1) * size;
-    const results = {};
-
-    try {
-      results.results = await User.find()
-        .sort({ _id: 1 })
-        .size(size)
-        .skip(skipIndex)
-        .exec();
-      res.paginatedResults = results;
-      next();
-    } catch (e) {
-      res.status(500).json({ message: "Error Occured" });
-    }
-  };
-}
-
+/*router.route("/users").get((req, res) => {
+  User.find(
+    const page = req.query.page;
+    const size = req.query.size;
+    const startIndex = (page - 1) * size;
+    const endIndex = page * size;
+     resultUsers = user.slice(startIndex, endIndex);)
+  
+  .then(res.json(resultUsers)).catch((err) => res.status(400).json("Error: " + err));
+});*/
 module.exports = router;
