@@ -51,14 +51,10 @@ router.route("/update/:id").put((req, res) => {
     .catch((err) => res.status(400).json("Error " + err));
 });
 
-/*router.route("/users").get((req, res) => {
-  User.find(
-    const page = req.query.page;
-    const size = req.query.size;
-    const startIndex = (page - 1) * size;
-    const endIndex = page * size;
-     resultUsers = user.slice(startIndex, endIndex);)
-  
-  .then(res.json(resultUsers)).catch((err) => res.status(400).json("Error: " + err));
-});*/
+router.route("/:page/:size").get((req, res) => {
+  User.find()
+    .then(() => res.json(req.params))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
 module.exports = router;
